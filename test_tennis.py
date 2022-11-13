@@ -77,6 +77,32 @@ class Test(unittest.TestCase):
         game.point2()
         self.assertEqual(game.status, "2:wins")
 
+    def test_over1(self):
+        game = tennis.Game()
+        game.point1()
+        game.point1()
+        game.point1()
+        game.point1()
+        with self.assertRaises(ValueError) as context:
+            game.point1()
+        self.assertTrue("Game over" in context.exception.args)
+        with self.assertRaises(ValueError) as context:
+            game.point2()
+        self.assertTrue("Game over" in context.exception.args)
+
+    def test_over2(self):
+        game = tennis.Game()
+        game.point2()
+        game.point2()
+        game.point2()
+        game.point2()
+        with self.assertRaises(ValueError) as context:
+            game.point1()
+        self.assertTrue("Game over" in context.exception.args)
+        with self.assertRaises(ValueError) as context:
+            game.point2()
+        self.assertTrue("Game over" in context.exception.args)
+
 
 if __name__ == "__main__":
     unittest.main()
