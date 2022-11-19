@@ -81,13 +81,37 @@ class Test(unittest.TestCase):
             ".*++++*",
         ], 9)
 
-    def test(self):
+    def test1(self):
+        src = [
+            ".s..f.",
+        ]
+        self.check_path(src, lead(src), 4)
+        src = [
+            ".s....",
+            "......",
+            "....f.",
+        ]
+        self.check_path(src, lead(src), 6)
+
+    def test2(self):
         src = [
             ".s**.f*",
             "*..*...",
             ".*....*",
         ]
-        #self.check_path(src, lead(src), 9)
+        self.check_path(src, lead(src), 9)
+        src = [
+            ".s**f..",
+            "*..***.",
+            ".......",
+        ]
+        self.check_path(src, lead(src), 12)
+        src = [
+            "......f",
+            "s.****.",
+            ".......",
+        ]
+        self.check_path(src, lead(src), 8)
 
 
 if __name__ == "__main__":
