@@ -113,6 +113,50 @@ class Test(unittest.TestCase):
         ]
         self.check_path(src, lead(src), 8)
 
+    def test3(self):
+        src = [
+            "....s....",
+            ".*.***.*.",
+            ".*.....**",
+            ".*****.*.",
+            "....f....",
+        ]
+        self.check_path(src, lead(src), 9)
+        src = [
+            "....s....",
+            ".*.***.*.",
+            ".*....***",
+            ".****..*.",
+            "....f....",
+        ]
+        self.check_path(src, lead(src), 11)
+        src = [
+            "....s....",
+            ".*.******",
+            ".*.......",
+            ".*******.",
+            "....f....",
+        ]
+        self.check_path(src, lead(src), 13)
+
+    def test4(self):
+        src = [
+            "s.*...***.",
+            "..*.......",
+            "......**..",
+            "..**..*...",
+            "*.......*f",
+        ]
+        self.check_path(src, lead(src), 16)
+        src = [
+            "s.*...***.",
+            "..*.......",
+            "......**..",
+            "..**..*...",
+            "*..*..*.*f",
+        ]
+        self.check_path(src, lead(src), 16)
+
 
 if __name__ == "__main__":
     unittest.main()
