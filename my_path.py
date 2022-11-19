@@ -38,5 +38,6 @@ class Field:
         self.data[y + 1][x + 1] = value
 
 
-def lead():
-    pass
+def lead(image: list[str]) -> list[str]:
+    #field = Field(len(image), len(image[0]))
+    return image
